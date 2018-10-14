@@ -1,0 +1,33 @@
+
+<p-dataTable [value]="candidates">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      Lista de candidatos
+      <button type="button" (click)="addNewCandidate()" pButton icon="pi pi-plus" iconPos="left" label="Add" 
+      style="float: left;"></button>
+    </div>
+  </p-header>
+  <p-column field="id" header="id"></p-column>
+  <p-column field="name" header="name"></p-column>
+  <p-column field="dob" header="Dob">
+    <ng-template let-row="rowData" pTemplate="body">
+      {{ row.dob | date:'dd/MM/yyyy' }}
+    </ng-template>
+  </p-column>
+  <p-column field="gender" header="Genero"></p-column>
+  <p-column styleClass="col-button">
+    <ng-template let-candidate="rowData" pTemplate="body">
+        <button type="button" pButton icon="fa fa-edit" (click)="selectedCandidate(candidate)"></button>
+    </ng-template>  
+  </p-column>
+  <p-column styleClass="col-button">
+      <ng-template let-candidate="rowData" pTemplate="body">
+          <button type="button" pButton icon="fa fa-trash" 
+            class="ui-button-danger" (click)="selectCarWithButton(rowData)"></button>
+      </ng-template>  
+    </p-column>
+</p-dataTable>
+
+<div *ngIf="candidate">
+  <app-candidate-detail [candidate]="candidate"></app-candidate-detail>
+</div>
