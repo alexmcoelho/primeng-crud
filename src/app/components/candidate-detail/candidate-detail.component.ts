@@ -30,11 +30,27 @@ export class CandidateDetailComponent implements OnInit {
     }
   }
 
-  saveCandidatoInfo(){
+  /*saveCandidatoInfo(){
     this.candidateService.saveCandidato(this.candidate).subscribe(
       data => {
         console.log(data)
-        this.display = false
+        if(data){
+          this.display = false
+        }
+      }
+    )
+  }*/
+  saveCandidatoInfo(){
+    this.candidateService.saveCandidato2(this.candidate).subscribe(
+      data => {
+        console.log(data)
+        if(data){
+          alert("Salvo com sucesso")
+          this.display = false
+        }
+      },
+      error => {
+
       }
     )
   }
