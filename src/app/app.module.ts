@@ -13,7 +13,7 @@ import { CandidateListComponent } from './components/candidate-list/candidate-li
 import { CandidateDetailComponent } from './components/candidate-detail/candidate-detail.component';
 import { FavouriteInfoComponent } from './components/favourite-info/favourite-info.component';
 
-import {DataTableModule, SharedModule, ButtonModule, InputTextModule, DialogModule, CalendarModule} from 'primeng/primeng';
+import {DataTableModule, SharedModule, ButtonModule, InputTextModule, DialogModule, CalendarModule, DropdownModule} from 'primeng/primeng';
 
 
 @NgModule({
@@ -35,7 +35,8 @@ import {DataTableModule, SharedModule, ButtonModule, InputTextModule, DialogModu
     BrowserAnimationsModule,
     DialogModule,
     InputTextModule,
-    CalendarModule
+    CalendarModule,
+    DropdownModule
   ],
   providers: [EventoInfoService, CandidateInfoService],
   bootstrap: [AppComponent]

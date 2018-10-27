@@ -23,7 +23,7 @@ export class CandidateInfoService {
 
   saveCandidato(candidate: Candidate){
     const body = JSON.stringify(candidate)
-    return this.http.put<any>(this.webApiUrl+candidate.id, body, httpOptions)
+    return this.http.post<any>(this.webApiUrl, body, httpOptions)
   }
 
   saveCandidato2(candidate: Candidate){

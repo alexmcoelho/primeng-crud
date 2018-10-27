@@ -1,5 +1,5 @@
 
-<p-dataTable [value]="candidates">
+<p-dataTable [value]="candidates" [immutable]="false">
   <p-header>
     <div class="ui-helper-clearfix">
       Lista de candidatos
@@ -29,5 +29,5 @@
 </p-dataTable>
 
 <div *ngIf="candidate">
-  <app-candidate-detail [candidate]="candidate"></app-candidate-detail>
+  <app-candidate-detail [candidate]="candidate" (saveCandidateNotify)="saveCandidate($event)"></app-candidate-detail>
 </div>

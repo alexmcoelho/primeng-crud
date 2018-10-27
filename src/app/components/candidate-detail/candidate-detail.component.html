@@ -1,4 +1,4 @@
-<p-dialog header="Candidato" [(visible)]="display" [modal]="true" [responsive]="true" [width]="550" >
+<p-dialog header="Candidato" [(visible)]="display" modal="modal" [responsive]="true" width="550" >
         
         <form class="form-group">
         <div class="form-group">
@@ -25,7 +25,8 @@
             <div class="ui-inputgroup">
                 <span class="ui-float-label">
                     <p-calendar [ngModel]="candidate.dob | date:dd/MM/yyyy" name="dob" [showIcon]="true"
-                      [monthNavigator]="true" [yearNavigator]="true" yearRange="1925:2018">
+                      [monthNavigator]="true" [yearNavigator]="true" yearRange="1925:2018" 
+                      (onselect)="getDOB($event)">
                     </p-calendar>
                     <label for="dob">DOB</label>
                 </span>
@@ -36,10 +37,11 @@
           <div class="form-group">
             <div class="ui-inputgroup">
                 <span class="ui-float-label">
-                    <input id="gender" type="text" pInputText [(ngModel)]="candidate.gender" name="gender"> 
-                    <label for="gender">Sexo</label>
+                    <p-dropdown [options]="genderList" [(ngModel)]="selectedGender" name="gender" 
+                        optionLabel="name" [style]="{width: '150px'}"> 
+                    </p-dropdown>
                 </span>
-                <span class="ui-inputgroup-addon"><i [class]="candidate.gender == 'M' ? 'fa fa-male' : 'fa fa-female'"></i></span>
+                <span class="ui-inputgroup-addon"><i [class]="selectedGender.code == 'M' ? 'fa fa-male' : 'fa fa-female'"></i></span>
             </div>
           </div>
 

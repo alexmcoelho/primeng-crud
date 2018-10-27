@@ -35,4 +35,12 @@ export class CandidateListComponent implements OnInit {
     this.candidate.favouriteCollection = []
   }
 
+  saveCandidate(candidate: Candidate){
+    const _candidate = this.candidates.find(x => x.id === this.candidate.id)
+    if(_candidate == null){
+      this.candidates.push(candidate)
+    }
+    this.candidate = null
+  }
+
 }
